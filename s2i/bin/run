@@ -10,4 +10,4 @@ if [[ $EXE_COUNT == 1 ]]; then
     mono $EXE_TO_RUN $MONO_RUN_OPTIONS
 else
     echo "Build directory should have one and only one .exe, but currently has $MONO_RUN_OPTIONS"
-fid
+fi
