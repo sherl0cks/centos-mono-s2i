@@ -11,3 +11,6 @@ if [[ "$NUGET_RESTORE" ]]; then
 fi
 
 xbuild $XBUILD_OPTIONS
+
+# set permissions for any installed artifacts
+fix-permissions /opt/app-root
