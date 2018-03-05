@@ -3,7 +3,6 @@
 set -e
 
 EXE_COUNT="$(ls $BUILD_DIRECTORY_TO_RUN/*.exe | wc -l)"
-echo $EXE_COUNT
 if [[ $EXE_COUNT == 1 ]]; then
     EXE_TO_RUN="$(ls $BUILD_DIRECTORY_TO_RUN/*.exe)"
     echo "executing $EXE_TO_RUN..."
