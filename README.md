@@ -1,0 +1,1 @@
+# centos-mono-s2i
