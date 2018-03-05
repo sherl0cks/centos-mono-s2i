@@ -4,7 +4,7 @@ set -e
 
 EXE_COUNT="$(ls $BUILD_DIRECTORY_TO_RUN/*.exe | wc -l)"
 if [[ $EXE_COUNT == 1 ]]; then
-    EXE_NAME="$(ls *.exe)"
+    EXE_NAME="$(ls $BUILD_DIRECTORY_TO_RUN/*.exe)"
     mono $BUILD_DIRECTORY_TO_RUN/$EXE_NAME $MONO_RUN_OPTIONS
 else
     echo "Build directory should have one and only one .exe, but currently has $MONO_RUN_OPTIONS"
