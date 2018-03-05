@@ -1,7 +1,9 @@
 FROM centos/s2i-base-centos7:latest
 
 ENV XBUILD_OPTIONS='' \
-    NUGET_RESTORE=true
+    NUGET_RESTORE=true \
+    BUILD_DIRECTORY_TO_RUN=build/bin/Debug \
+    MONO_RUN_OPTIONS=''
 
 RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF" && \
     curl https://download.mono-project.com/repo/centos7-stable.repo | tee /etc/yum.repos.d/mono-centos7-stable.repo && \
