@@ -1,3 +1,4 @@
+# inspired by https://github.com/sclorg/s2i-python-container/tree/master/3.6
 FROM centos/s2i-base-centos7:latest
 
 ENV XBUILD_OPTIONS='' \
@@ -14,6 +15,12 @@ RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E03
 
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH.
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH
+
+# - In order to drop the root user, we have to make some directories world
+#   writable as OpenShift default security model is to run the container
+#   under random UID.
+RUN chown -R 1001:0 ${APP_ROOT} && \
+    fix-permissions ${APP_ROOT} -P
 
 USER 1001
 
